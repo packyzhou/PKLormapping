@@ -10,9 +10,34 @@
 ➢	支持多线程并发处理，线程安全
 ➢	支持HQL语句
 
-➢	目前不支持事务处理
-➢	目前不支持多表联动映射
-➢	目前不支持join方式自动补全
+➢	目前不支持join连接方式自动补全
+
+1.1版本
+修复：
+	属性空值SQL映射失败BUG
+
+新增：
+	新增多表联动映射
+	新增事务处理机制
+	新增批量处理API，实测万级数据插入快3倍以上
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 2.	接口说明
  
@@ -73,6 +98,43 @@ hql.queryPage = queryPage;//放入HQL帮助类
 //结果集回调函数
 //rs为返回的数据列表，state为SQL执行状态，YES为执行成功，NO为执行失败。
 -(void) dataResult:(id)rs state:(BOOL)state{}
+UserInfo *userInfo = [[UserInfo alloc] init];//主表对象
+    
+    PKMultipleEntityBean *multipleEntiryBean = [[PKMultipleEntityBean alloc] init];//多表映射设置
+    multipleEntiryBean.mappingClass = [AddressBook class];//映射类
+    multipleEntiryBean.foreignKeyMapping = [NSDictionary dictionaryWithObject:@"userId" forKey:@"id"];//映射字段
+ mappingClass ：映射数组的对象class
+ foreignKeyMapping : 外键映射 ,key 为主键 （主表）, value 为外键 (从表)
+ 如：{ id : userId } 对应数据库语句 -> id （主表）=  userId （从表）
+    PKArray *addressBookArray = [[PKArray alloc] init];//创建映射数组对象
+    addressBookArray.multipleEntityBean = multipleEntiryBean;//把关联表映射信息放入数组
+    userInfo.addressBook = addressBookArray;//从表映射设置完毕后放入需要映射的属性
+    
+    PKHQLer *hql = [[PKHQLer alloc] initForEntity:userInfo];
+    [thread queryExecute:hql injectObj:userInfo callBackTarget:self];
+
+PS：
+主键和外键映射的属性非对象类型，必须用NSNumber类型才能自增长。
+多表关联映射，映射数组必须为PKArray数组。
+引用方式：#import "PKLormapping.framework/Headers/PKArray.h"
+
+
+//创建访问线程加入线程池
+[thread queryExecute:hql injectObj:userInfo callBackTarget:self];//根据HQL条件查询对象对应的表的数据，
+
+[thread execute:sql callBackTarget:self];//自定义扩展SQL
+
+[thread insertExecute:userInfo callBackTarget:self];//并发插入数据
+
+[thread updateExecute:nil injectObj:userInfo callBackTarget:self];//更新数据
+
+[thread countExecute:nil injectObj:userInfo callBackTarget:self];//计算总条数
+
+[thread deleteExecute:nil injectObj:userInfo callBackTarget:self];
+
+//结果集回调函数
+//rs为返回的数据列表，state为SQL执行状态，YES为执行成功，NO为执行失败。
+-(void) dataResult:(id)rs state:(BOOL)state{}
 4.	导入方式
  
 头文件引用：
@@ -81,4 +143,6 @@ hql.queryPage = queryPage;//放入HQL帮助类
 
 作者：周老师
 QQ：974871365
+邮箱：packyzhou@icloud.com
 Blog: http://blog.csdn.net/packyzhou
+
