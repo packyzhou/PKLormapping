@@ -141,8 +141,8 @@ PS：
 #import "PKLormapping.framework/Headers/PKLormapping.h"
 5.	反馈
 
-作者：周老师
+author：周老师
 QQ：974871365
-邮箱：packyzhou@icloud.com
+e-mail：packyzhou@icloud.com
 Blog: http://blog.csdn.net/packyzhou
 
