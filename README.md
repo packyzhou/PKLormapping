@@ -124,6 +124,7 @@ PS：
 
 [thread execute:sql callBackTarget:self];//自定义扩展SQL
 
+
 [thread insertExecute:userInfo callBackTarget:self];//并发插入数据
 
 [thread updateExecute:nil injectObj:userInfo callBackTarget:self];//更新数据
