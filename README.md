@@ -164,12 +164,12 @@ PS：<br>
 
 4.	导入方式
  
-头文件引用：
-#import "PKLormapping.framework/Headers/PKLormapping.h"
-5.	反馈
+头文件引用：<br>
+#import "PKLormapping.framework/Headers/PKLormapping.h"<br><br>
 
-author：周老师
-QQ：974871365
-e-mail：packyzhou@icloud.com
-Blog: http://blog.csdn.net/packyzhou
+5.	反馈<br>
+author：周老师<br>
+QQ：974871365<br>
+e-mail：packyzhou@icloud.com<br>
+Blog: http://blog.csdn.net/packyzhou<br><br>
 
