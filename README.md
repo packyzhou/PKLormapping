@@ -159,7 +159,6 @@ hql.queryPage = queryPage;//放入HQL帮助类<br><br>
 -(void) dataResult:(id)rs state:(BOOL)state{……}<br><br>
 
 UserInfo *userInfo = [[UserInfo alloc] init];//主表对象<br>
-    
     PKMultipleEntityBean *multipleEntiryBean = [[PKMultipleEntityBean alloc] init];//多表映射设置<br>
     multipleEntiryBean.mappingClass = [AddressBook class];//映射类<br>
     multipleEntiryBean.foreignKeyMapping = [NSDictionary dictionaryWithObject:@"userId" forKey:@"id"];//映射字段<br>
