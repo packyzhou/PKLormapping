@@ -2,7 +2,7 @@
 //  PKAccessThreadProtocol.h
 //  PKlormTest
 //
-//  Created by 周经伟 on 15/6/26.
+//  Created by 周老师 on 15/6/26.
 //  Copyright (c) 2015年 packy. All rights reserved.
 //
 
@@ -72,7 +72,7 @@
 -(void) batchUpdateExecute:(PKHQLer *) hql batchArray:(NSArray *) batchArray callBackTarget:(id) delegate;
 
 /*
- *  关闭数据库访问
+ *  关闭数据库线程
  */
 -(void) closeDataBaseThread;
 @end
