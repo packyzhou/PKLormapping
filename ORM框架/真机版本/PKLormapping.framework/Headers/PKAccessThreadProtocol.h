@@ -70,5 +70,10 @@
  *  delegate 通过代理返回结果集
  */
 -(void) batchUpdateExecute:(PKHQLer *) hql batchArray:(NSArray *) batchArray callBackTarget:(id) delegate;
+
+/*
+ *  关闭数据库访问
+ */
+-(void) closeDataBaseThread;
 @end
 #endif

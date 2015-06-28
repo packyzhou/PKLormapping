@@ -28,9 +28,10 @@ static NSMutableDictionary *cacheData;//缓存数据,key为查询SQL,Value为数
     //sqlite
 }
 
+@property(readonly,nonatomic) PKSQLite *sqlite;
+
 @property NSInteger timeOut;//超时时间，默认为3秒
 @property NSInteger poolCount;//线程池大小，默认为1
 @property BOOL cacheData;//是否缓存数据，默认为YES
-
 
 @end
