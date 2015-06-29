@@ -53,8 +53,8 @@
 3.	Demo<br>
 //创建数据库访问线程池<br>
 
-PKAccessThread ＊thread = [[PKAccessThread alloc] initWithSQLitePath:@"lorm.sqlite"];<br>
-thread.poolCount = 2;//线程池并发数，默认1<br><br>
+    PKAccessThread ＊thread = [[PKAccessThread alloc] initWithSQLitePath:@"lorm.sqlite"];<br>
+    thread.poolCount = 2;//线程池并发数，默认1<br><br>
 
 //创建某个对象<br>
 
@@ -68,14 +68,14 @@ thread.poolCount = 2;//线程池并发数，默认1<br><br>
 //创建HQL帮助类<br>
 
     PKHQLer *hql = [[PKHQLer alloc] initForEntity:userInfo];<br>
-[hql addLike:@"name" value:@"周"];//添加查询条件<br>
+    [hql addLike:@"name" value:@"周"];//添加查询条件<br>
 
 //创建分页类<br>
 
     PKQueryPage *queryPage = [[PKQueryPage alloc] init];<br>
     queryPage.rows = 100;//每页行数<br>
     queryPage.page = 0;//第x页<br>
-hql.queryPage = queryPage;//放入HQL帮助类<br><br>
+    hql.queryPage = queryPage;//放入HQL帮助类<br><br>
 
 //创建访问线程加入线程池<br>
  *  多线程操作数据库初始化
@@ -158,8 +158,7 @@ hql.queryPage = queryPage;//放入HQL帮助类<br><br>
 
 -(void) dataResult:(id)rs state:(BOOL)state{……}<br><br>
 
-UserInfo *userInfo = [[UserInfo alloc] init];//主表对象
-
+UserInfo *userInfo = [[UserInfo alloc] init];//主表对象<br>
     PKMultipleEntityBean *multipleEntiryBean = [[PKMultipleEntityBean alloc] init];//多表映射设置<br>
     multipleEntiryBean.mappingClass = [AddressBook class];//映射类<br>
     multipleEntiryBean.foreignKeyMapping = [NSDictionary dictionaryWithObject:@"userId" forKey:@"id"];//映射字段<br>
@@ -191,4 +190,5 @@ author：周老师<br>
 QQ：974871365<br>
 e-mail：packyzhou@icloud.com<br>
 Blog: http://blog.csdn.net/packyzhou<br><br>
+
 
