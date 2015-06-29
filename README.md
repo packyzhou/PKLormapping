@@ -52,9 +52,8 @@
 
 3.	Demo<br>
 //创建数据库访问线程池<br>
-
-    PKAccessThread ＊thread = [[PKAccessThread alloc] initWithSQLitePath:@"lorm.sqlite"];<br>
-    thread.poolCount = 2;//线程池并发数，默认1<br><br>
+PKAccessThread ＊thread = [[PKAccessThread alloc] initWithSQLitePath:@"lorm.sqlite"];<br>
+thread.poolCount = 2;//线程池并发数，默认1<br><br>
 
 //创建某个对象<br>
 
@@ -158,7 +157,7 @@
 
 -(void) dataResult:(id)rs state:(BOOL)state{……}<br><br>
 
-UserInfo *userInfo = [[UserInfo alloc] init];//主表对象<br>
+    UserInfo *userInfo = [[UserInfo alloc] init];//主表对象<br>
     PKMultipleEntityBean *multipleEntiryBean = [[PKMultipleEntityBean alloc] init];//多表映射设置<br>
     multipleEntiryBean.mappingClass = [AddressBook class];//映射类<br>
     multipleEntiryBean.foreignKeyMapping = [NSDictionary dictionaryWithObject:@"userId" forKey:@"id"];//映射字段<br>
@@ -166,8 +165,7 @@ UserInfo *userInfo = [[UserInfo alloc] init];//主表对象<br>
  mappingClass ：映射数组的对象class<br>
  foreignKeyMapping : 外键映射 ,key 为主键 （主表）, value 为外键 (从表)<br>
  如：{ id : userId } 对应数据库语句 -> id （主表）=  userId （从表）<br>
- 
-    PKArray *addressBookArray = [[PKArray alloc] init];//创建映射数组对象<br>
+ PKArray *addressBookArray = [[PKArray alloc] init];//创建映射数组对象<br>
     addressBookArray.multipleEntityBean = multipleEntiryBean;//把关联表映射信息放入数组<br>
     userInfo.addressBook = addressBookArray;//从表映射设置完毕后放入需要映射的属性<br>
     
