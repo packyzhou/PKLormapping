@@ -165,9 +165,10 @@ thread.poolCount = 2;//线程池并发数，默认1<br><br>
  mappingClass ：映射数组的对象class<br>
  foreignKeyMapping : 外键映射 ,key 为主键 （主表）, value 为外键 (从表)<br>
  如：{ id : userId } 对应数据库语句 -> id （主表）=  userId （从表）<br>
+ 
  PKArray *addressBookArray = [[PKArray alloc] init];//创建映射数组对象<br>
-    addressBookArray.multipleEntityBean = multipleEntiryBean;//把关联表映射信息放入数组<br>
-    userInfo.addressBook = addressBookArray;//从表映射设置完毕后放入需要映射的属性<br>
+ addressBookArray.multipleEntityBean = multipleEntiryBean;//把关联表映射信息放入数组<br>
+ userInfo.addressBook = addressBookArray;//从表映射设置完毕后放入需要映射的属性<br>
     
     PKHQLer *hql = [[PKHQLer alloc] initForEntity:userInfo];<br>
     [thread queryExecute:hql injectObj:userInfo callBackTarget:self];<br>
