@@ -17,11 +17,12 @@
 #import "PKAccessThreadProtocol.h"
 #define cachaCount 1 //缓存SQL数量
 //typedef void (^result)(id rs);
-static NSOperationQueue *poolQueue;//线程池
+static NSOperationQueue *poolQueue;//线程池单例
 static NSMutableDictionary *cacheData;//缓存数据,key为查询SQL,Value为数据
-static id sharedInstance;//数据库访问线程单例
+
 @interface PKAccessThread : NSObject<PKAccessThreadProtocol>
 {
+    NSInvocationOperation *operation;//线程
     //映射
     PKMapping *mapping;
     //sqlite

@@ -12,6 +12,12 @@
 @protocol PKAccessThreadProtocol
 
 /*
+ *  单例模式
+ *  path为数据库路径
+ */
++(id) shareAccess:(NSString *) path;
+
+/*
  *  多线程操作数据库初始化
  *  path为数据库路径
  */
