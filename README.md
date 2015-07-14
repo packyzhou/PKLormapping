@@ -82,7 +82,7 @@ thread.poolCount = 2;//线程池并发数，默认1<br><br>
  *  单例模式
  *  path为数据库路径
  */
-+(id) shareAccess:(NSString *) path;
++(id) shareAccess:(NSString *) path;<br><br>
 
  *  多线程操作数据库初始化
  *  path为数据库路径
