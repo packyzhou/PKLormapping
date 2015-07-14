@@ -77,6 +77,13 @@ thread.poolCount = 2;//线程池并发数，默认1<br><br>
     hql.queryPage = queryPage;//放入HQL帮助类<br><br>
 
 //创建访问线程加入线程池<br>
+
+/*
+ *  单例模式
+ *  path为数据库路径
+ */
++(id) shareAccess:(NSString *) path;
+
  *  多线程操作数据库初始化
  *  path为数据库路径
  */
