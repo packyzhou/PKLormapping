@@ -1,0 +1,10 @@
+framework module PKLormappingSwift {
+  umbrella header "PKLormappingSwift.h"
+
+  export *
+  module * { export * }
+}
+
+module PKLormappingSwift.Swift {
+    header "PKLormappingSwift-Swift.h"
+}

@@ -1,6 +1,0 @@
-framework module PKLormapping {
-  umbrella header "PKLormapping.h"
-
-  export *
-  module * { export * }
-}
