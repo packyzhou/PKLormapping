@@ -193,7 +193,6 @@ PS：<br>
 
 5.	反馈<br>
 author：周老师<br>
-QQ：974871365<br>
 e-mail：packyzhou@icloud.com<br>
 Blog: http://blog.csdn.net/packyzhou<br><br>
 
