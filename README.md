@@ -1,4 +1,4 @@
-# PKLormapping
+# PKLormapping(Object-c)
 1.特性
 
 •支持面向对象，零SQL操作数据库<br>
@@ -197,4 +197,4 @@ QQ：974871365<br>
 e-mail：packyzhou@icloud.com<br>
 Blog: http://blog.csdn.net/packyzhou<br><br>
 
-
+# PKLormapping(Swift)
