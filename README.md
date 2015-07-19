@@ -189,7 +189,7 @@ PS：<br>
 4.	导入方式
  
 头文件引用：<br>
-#import "PKLormapping.framework/Headers/PKLormapping.h"<br><br>
+＃import "PKLormapping.framework/Headers/PKLormapping.h"<br><br>
 
 5.	反馈<br>
 author：周老师<br>
