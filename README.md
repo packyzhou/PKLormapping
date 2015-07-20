@@ -189,7 +189,7 @@ PS：<br>
 4.	导入方式
  
 头文件引用：<br>
-		＃import "PKLormapping.framework/Headers/PKLormapping.h"<br><br>
+＃import "PKLormapping.framework/Headers/PKLormapping.h"<br><br>
 
 # PKLormapping(Swift)
 Swift版Demo<br>
@@ -259,8 +259,8 @@ F.	批量处理<br>
 //使用批量更新处理线程（线程安全，事务机制）<br>
 		dataBaseAccess.batchUpdateExecute(hql, batchArray: batchArray, callBackTarget: self)<br><br>
 
-EntiyDemo:<br>
-class UserInfo: NSObject {<br>
+		EntiyDemo:<br>
+		class UserInfo: NSObject {<br>
     var id:NSNumber?<br>
     var userName:NSString?<br>
     var age:NSNumber?<br>
@@ -283,5 +283,4 @@ class UserInfo: NSObject {<br>
 author：周老师<br>
 e-mail：packyzhou@icloud.com<br>
 Blog: http://blog.csdn.net/packyzhou<br><br>
-
 
