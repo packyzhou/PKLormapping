@@ -232,7 +232,7 @@ D.	修改<br>
         //HQL辅助类<br>
         var hql:PKHQLer = PKHQLer()<br>
 		//更新条件为where id = 8888<br>
-       ``` hql.addEqual("id", value: "8888")<br>
+       		hql.addEqual("id", value: "8888")<br>
 
         dataBaseAccess.updateExecute(hql, obj: user, callBackTarget: self)<br><br>
 
