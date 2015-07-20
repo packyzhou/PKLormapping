@@ -272,14 +272,14 @@ F.	批量处理<br>
 		userBatch.userName = "zjw-update"
 		userBatch.date = NSDate()
 		batchArray.addObject(userBatch)
-		}<br>
-
-<br>
-
+		}
 		//使用批量插入处理线程（线程安全，事务机制）<br>
 		dataBaseAccess.batchInsertExecute(batchArray, callBackTarget: self)
 		//使用批量更新处理线程（线程安全，事务机制）<br>
 		dataBaseAccess.batchUpdateExecute(hql, batchArray: batchArray, callBackTarget: self)
+
+<br>
+
 		EntiyDemo:
 		class UserInfo: NSObject {
 		var id:NSNumber?
