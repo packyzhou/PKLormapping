@@ -243,7 +243,7 @@ E.	删除<br>
 		hql.addEqual("USER_NAME", value: "packy-delete")<br>
 		dataBaseAccess.deleteExecute(hql, obj: user, callBackTarget: self)<br><br>
 F.	批量处理<br>
-//创建UserInfo类型的数组<br>
+		//创建UserInfo类型的数组<br>
 		var batchArray:NSMutableArray = []<br>
 		for i in 100...1000 {<br>
             var userBatch:UserInfo = UserInfo()<br>
@@ -254,9 +254,9 @@ F.	批量处理<br>
             }<br><br>
 
 
-//使用批量插入处理线程（线程安全，事务机制）<br>
+		//使用批量插入处理线程（线程安全，事务机制）<br>
 		dataBaseAccess.batchInsertExecute(batchArray, callBackTarget: self)<br>
-//使用批量更新处理线程（线程安全，事务机制）<br>
+		//使用批量更新处理线程（线程安全，事务机制）<br>
 		dataBaseAccess.batchUpdateExecute(hql, batchArray: batchArray, callBackTarget: self)<br><br>
 
 		EntiyDemo:<br>
@@ -270,8 +270,8 @@ F.	批量处理<br>
 		var date:NSDate?<br>
 		var bookAddress:PKArray = PKArray(entityNSObject: BookAddress())<br>
 		var adr:PKArray = PKArray(entityNSObject: BookAddress())<br>
-		}<br><br>
-
+		}<br>
+<br>
 		⚠注意<br>
 		1)	创建Entity映射对象时，类型必须为NSObject的子类，因为swift目前其他基础类型不能使用KVC<br>
 		2)	在联表查询时必须使用PKArray,且必须添加foreginKeyMapping 联动条件<br>
