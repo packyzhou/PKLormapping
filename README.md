@@ -225,15 +225,14 @@ C.	新增<br>
 dataBaseAccess.insertExecute(user, callBackTarget: self)<br><br>
 
 D.	修改<br>
- 		var user:UserInfo = UserInfo()<br>
+ 	var user:UserInfo = UserInfo()<br>
         user.id = 8888<br>
         user.userName = "packyzhou"<br>
         user.date = NSDate()<br>
         //HQL辅助类<br>
         var hql:PKHQLer = PKHQLer()<br>
-		//更新条件为where id = 8888<br>
+	//更新条件为where id = 8888<br>
         hql.addEqual("id", value: "8888")<br>
-		123
         dataBaseAccess.updateExecute(hql, obj: user, callBackTarget: self)<br><br>
 
 E.	删除<br>
