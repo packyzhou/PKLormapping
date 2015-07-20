@@ -243,6 +243,7 @@ E.	删除<br>
 		hql.addEqual("USER_NAME", value: "packy-delete")<br>
 		dataBaseAccess.deleteExecute(hql, obj: user, callBackTarget: self)<br><br>
 F.	批量处理<br>
+
 		//创建UserInfo类型的数组<br>
 		var batchArray:NSMutableArray = []<br>
 		for i in 100...1000 {<br>
@@ -252,12 +253,12 @@ F.	批量处理<br>
 		userBatch.date = NSDate()<br>
 		batchArray.addObject(userBatch)<br>
 		}<br>
-<br>
+
 		//使用批量插入处理线程（线程安全，事务机制）<br>
 		dataBaseAccess.batchInsertExecute(batchArray, callBackTarget: self)<br>
 		//使用批量更新处理线程（线程安全，事务机制）<br>
 		dataBaseAccess.batchUpdateExecute(hql, batchArray: batchArray, callBackTarget: self)<br>
-<br>
+
 		EntiyDemo:<br>
 		class UserInfo: NSObject {<br>
 		var id:NSNumber?<br>
