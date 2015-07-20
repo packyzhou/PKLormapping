@@ -291,7 +291,7 @@ F.	批量处理<br>
 		var bookAddress:PKArray = PKArray(entityNSObject: BookAddress())
 		var adr:PKArray = PKArray(entityNSObject: BookAddress())
 		}
-<br>
+
 		⚠注意
 		1)	创建Entity映射对象时，类型必须为NSObject的子类，因为swift目前其他基础类型不能使用KVC
 		2)	在联表查询时必须使用PKArray,且必须添加foreginKeyMapping 联动条件
