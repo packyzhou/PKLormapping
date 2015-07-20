@@ -191,9 +191,97 @@ PS：<br>
 头文件引用：<br>
 ＃import "PKLormapping.framework/Headers/PKLormapping.h"<br><br>
 
+# PKLormapping(Swift)
+Swift版Demo
+A.	获取访问线程
+框架文件引用：import PKLormappingSwift
+
+lazy var dataBaseAccess:PKDataBaseAccess = PKDataBaseAccess.shareAccess("数据库名")
+
+回调必须遵循 PKDataAccessDelegate 协议
+B.	Query查询/分页/联动查询
+ 		//查询映射对象
+        var user:UserInfo = UserInfo()
+        /*
+        *   联表映射时联动对象必须为PKArray类型
+        *   联动查询时必须注明PKArray对象内的属性关联字段foreginKeyMapping，否则会异常
+        *    SQL联动查询条件为 where 从表的userId字段 ＝ 主表的id的值
+        */
+        user.bookAddress.foreginKeyMapping = ["id":"userId"]
+        //HQL辅助类
+        var hql:PKHQLer = PKHQLer()
+        //分页信息rows一页行数,page第x页
+        hql.queryPage = PKQueryPage(rows: 100, page: 0)
+        //查询条件，表示 SQL查询条件为 where user_name = 'packyzhou'
+        hql.addEqual("USER_NAME", value: "packyzhou")
+        //使用queryExecute进行线程访问数据库
+dataBaseAccess.queryExecute(user,hql: hql, callBackTarget: self)
+C.	新增
+ 		var user:UserInfo = UserInfo()
+        user.id = 8888
+        user.userName = "packy-insert"
+        user.date = NSDate()
+
+dataBaseAccess.insertExecute(user, callBackTarget: self)
+
+D.	修改
+ 		var user:UserInfo = UserInfo()
+        user.id = 8888
+        user.userName = "packyzhou"
+        user.date = NSDate()
+        //HQL辅助类
+        var hql:PKHQLer = PKHQLer()
+		//更新条件为where id = 8888
+        hql.addEqual("id", value: "8888")
+
+        dataBaseAccess.updateExecute(hql, obj: user, callBackTarget: self)
+
+E.	删除
+	   var user:UserInfo = UserInfo()
+		//HQL辅助类
+        var hql:PKHQLer = PKHQLer()
+		//更新条件为where id = 8888
+        hql.addEqual("USER_NAME", value: "packy-delete")
+        dataBaseAccess.deleteExecute(hql, obj: user, callBackTarget: self)
+F.	批量处理
+//创建UserInfo类型的数组
+		var batchArray:NSMutableArray = []
+        for i in 100...1000 {
+            var userBatch:UserInfo = UserInfo()
+            userBatch.id = i
+            userBatch.userName = "zjw-update"
+            userBatch.date = NSDate()
+            batchArray.addObject(userBatch)
+        }
+
+
+//使用批量插入处理线程（线程安全，事务机制）
+		dataBaseAccess.batchInsertExecute(batchArray, callBackTarget: self)
+//使用批量更新处理线程（线程安全，事务机制）
+		dataBaseAccess.batchUpdateExecute(hql, batchArray: batchArray, callBackTarget: self)
+
+EntiyDemo:
+class UserInfo: NSObject {
+    var id:NSNumber?
+    var userName:NSString?
+    var age:NSNumber?
+    var sex:NSString!
+    var double:NSNumber?
+    var float:NSNumber?
+    var date:NSDate?
+    var bookAddress:PKArray = PKArray(entityNSObject: BookAddress())
+    var adr:PKArray = PKArray(entityNSObject: BookAddress())
+}
+
+⚠注意
+1)	创建Entity映射对象时，类型必须为NSObject的子类，因为swift目前其他基础类型不能使用KVC
+2)	在联表查询时必须使用PKArray,且必须添加foreginKeyMapping 联动条件
+3)	Swift语言目前版本的映射能力非常差，大家尽量别尝试强行转用基础类型
+4)	此版本PKLormapping仅支持swift1.1版本-swift1.2版本，不支持swift2.0
+
+
 5.	反馈<br>
 author：周老师<br>
 e-mail：packyzhou@icloud.com<br>
 Blog: http://blog.csdn.net/packyzhou<br><br>
 
-# PKLormapping(Swift)
