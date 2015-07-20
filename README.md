@@ -225,23 +225,30 @@ C.	新增<br>
 		dataBaseAccess.insertExecute(user, callBackTarget: self)<br><br>
 
 D.	修改<br>
+
 		var user:UserInfo = UserInfo()<br>
 		user.id = 8888<br>
 		user.userName = "packyzhou"<br>
 		user.date = NSDate()<br>
+
         //HQL辅助类<br>
+        
 		var hql:PKHQLer = PKHQLer()<br>
+
 	//更新条件为where id = 8888<br>
+	
 		hql.addEqual("id", value: "8888")<br>
 		dataBaseAccess.updateExecute(hql, obj: user, callBackTarget: self)<br><br>
 
 E.	删除<br>
+
 		var user:UserInfo = UserInfo()<br>
 		//HQL辅助类<br>
 		var hql:PKHQLer = PKHQLer()<br>
 		//更新条件为where id = 8888<br>
 		hql.addEqual("USER_NAME", value: "packy-delete")<br>
 		dataBaseAccess.deleteExecute(hql, obj: user, callBackTarget: self)<br><br>
+
 F.	批量处理<br>
 
 		//创建UserInfo类型的数组<br>
