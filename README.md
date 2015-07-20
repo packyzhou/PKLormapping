@@ -189,7 +189,7 @@ PS：<br>
 4.	导入方式
  
 头文件引用：<br>
-＃import "PKLormapping.framework/Headers/PKLormapping.h"<br><br>
+		＃import "PKLormapping.framework/Headers/PKLormapping.h"<br><br>
 
 # PKLormapping(Swift)
 Swift版Demo<br>
@@ -284,4 +284,4 @@ author：周老师<br>
 e-mail：packyzhou@icloud.com<br>
 Blog: http://blog.csdn.net/packyzhou<br><br>
 
-		但航
+
