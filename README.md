@@ -260,7 +260,7 @@ F.	批量处理<br>
 		dataBaseAccess.batchUpdateExecute(hql, batchArray: batchArray, callBackTarget: self)<br><br>
 
 		EntiyDemo:<br>
-		class UserInfo: NSObject {<br>
+class UserInfo: NSObject {<br>
     var id:NSNumber?<br>
     var userName:NSString?<br>
     var age:NSNumber?<br>
@@ -271,7 +271,7 @@ F.	批量处理<br>
     var bookAddress:PKArray = PKArray(entityNSObject: BookAddress())<br>
     var adr:PKArray = PKArray(entityNSObject: BookAddress())<br>
 }<br><br>
-
+		
 ⚠注意<br>
 1)	创建Entity映射对象时，类型必须为NSObject的子类，因为swift目前其他基础类型不能使用KVC<br>
 2)	在联表查询时必须使用PKArray,且必须添加foreginKeyMapping 联动条件<br>
