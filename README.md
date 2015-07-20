@@ -259,9 +259,9 @@ F.	批量处理<br>
 //使用批量更新处理线程（线程安全，事务机制）<br>
 		dataBaseAccess.batchUpdateExecute(hql, batchArray: batchArray, callBackTarget: self)<br><br>
 
-		EntiyDemo:<br>
-		class UserInfo: NSObject {<br>
-	    var id:NSNumber?<br>
+EntiyDemo:<br>
+class UserInfo: NSObject {<br>
+	var id:NSNumber?<br>
     var userName:NSString?<br>
     var age:NSNumber?<br>
     var sex:NSString!<br>
